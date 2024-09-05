@@ -1,0 +1,28 @@
+tổng quan http response and request
+bai 1:
+khi gọi đến 1 đường link - url thi máy chủ trả về cho chúng ta 1 trăng web
+
+
+bây giờ:
+frontend- trình duyêt gọi đến url nào đó thi máy chủ trả về data
+frontend sẽ dử dụng data đó để build lên htmnl
+
+
+http / https (restfull)
+giao thưc truyền tải siêu văn bản
+
+protocol: giao thức (http)
+method: phương thức GET/POST/PUT/DELETE/OPTIONS/PATCH ...
+    - khi dung trình trinh duyerh gọi truc tiep đen 1 web site -> GET
+    (****)
+GET/POST/PUT/DELETE/PATCH:
+header: mang thông tin cân gửi lên server
+response: là cái mà máy chủ trả về
+
+
+
+listup len console
+- title cua post
+- text cua comment
+- name cua user
+
