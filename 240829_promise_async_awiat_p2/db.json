@@ -1,36 +1,36 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "a title",
-      "views": 100
-    },
-    {
-      "id": "2",
-      "title": "another title",
-      "views": 200
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
-    }
-  ],
   "users": [
     {
       "id": "1",
-      "name": "john"
+      "name": "john 432"
     },
     {
       "id": "2",
       "name": "kate"
+    },
+    {
+      "id": "6669",
+      "name": "hoang"
+    },
+    {
+      "id": "b08f",
+      "name": "Hiep"
+    },
+    {
+      "id": "2e24",
+      "name": "hai"
+    },
+    {
+      "id": "f85f",
+      "name": "borad"
+    },
+    {
+      "id": "c3fc",
+      "name": "john 123"
+    },
+    {
+      "id": "8208",
+      "name": "hanh 123"
     }
   ]
 }
