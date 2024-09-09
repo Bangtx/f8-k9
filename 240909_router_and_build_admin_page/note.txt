@@ -1,0 +1,15 @@
+1. router & route
+2. SPA (single page application)
+3. build SPA
+4. build admin pages
+
+
+chia lam 3 File
+router(controller):
+    -khai bao cac route co trong app
+
+view:
+    - render html
+
+service (model):
+    - xu ly logic
