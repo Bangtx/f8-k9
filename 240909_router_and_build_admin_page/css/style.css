@@ -29,3 +29,28 @@ nav ul li a {
     justify-content: space-between;
     padding: 10px;
 }
+#user-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+#user-form input {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #c4c4c4;
+    margin-bottom: 5px;
+}
+
+#user-form input:focus {
+    outline: none;
+    border: 1px solid rgb(182, 182, 253);
+}
+.add-btn {
+    font-size: 16px;
+    border: none;
+    background-color: rgb(112, 249, 112);
+    padding: 5px;
+}
+.add-btn:active {
+    background-color: rgb(92, 237, 92);
+}

@@ -13,3 +13,9 @@ view:
 
 service (model):
     - xu ly logic
+
+
+// dont repeact you s
+// http://localhost:5500/users/1
+// http://localhost:5500/users/2
+// http://localhost:5500/users/0
