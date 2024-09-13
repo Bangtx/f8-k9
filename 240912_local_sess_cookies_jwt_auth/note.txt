@@ -1,0 +1,45 @@
+- khi moi nguoi vào shoppe 
+ -> login
+ -> tắt app
+ -> vào lại shoppe 
+    -> vẫn đang đăng nhập
+    -> câu hỏi: có cái gì đó để lưu 
+        - localStorage
+        - sessionStorage
+        - cookies
+
+- điểm chung
+chức năng: đều để luuw trũ thông tin
+- điểm khác
+- cookies có thể gen ra từ serveser or client (trình duyêt)
+hạn:
+    - local: vẫn viễn
+    - session: cho đến khi tab đc tắt
+    - cookies: tùy vào dev
+thao tác vs server:
+    - cookies: tự gửi qua header
+    - local & session thi ko
+dung lương: 
+    - cookies: lưu được ít hơn (4k)
+    - local & session: 5M
+truy cập
+    - cookies & local: bất kì của sổ nàio
+    - session: chỉ tab đó 
+
+token
+- 1 la chuoi string co tac dung xac thuc nguoi dung
+- co rat nhieu loai
+- quan tan de jwt
+
+jwt co 3 phan:
+- header
+- payload
+- sign
+
+quy tring login
+- nhap user/pass
+- call api login Post
+- {
+    'aceess_token': string,
+    'refresh_token': string
+}
