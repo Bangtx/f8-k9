@@ -3,7 +3,7 @@ const router = new Navigo('/');
 const app = document.getElementById('app');
 
 router.on({
-    '/': () => {
+    '': () => {
         renderUser()
     },
     '/user/:id': ({data}) => {
