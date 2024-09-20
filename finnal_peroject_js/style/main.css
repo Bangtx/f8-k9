@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header--content {
+    justify-items: center;
+    height: 48px;
+}
+
+.center {
+    margin: 0 auto;
+    align-items: center;
+    /* text-align: center; */
+}
+
+.width--1200 {
+    max-width: 1200px;
+}
+
+.primary--bg {
+    background-color: rgb(82, 139, 53);
+}
+
+.white--text {
+    color: white;
+}
+
+.display--flex {
+    display: flex;
+}
+.between-content {
+    justify-content: space-between;
+}
+
+.user-info {
+    width: 30px;
+}
+
+.table-container {
+    width: 500px;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+}

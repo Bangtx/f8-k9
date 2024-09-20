@@ -1,0 +1,36 @@
+b1: tao router
+b2: tao view
+
+dong 1 -> 5 la tham so duoc khoi tao khi khoi toa du an'
+scripts
+cac cau lenh được thiết kế trong dự án
+VÍ DỤ
+"scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+},
+
+npm run dev -> npm vite
+npm run build -> vite build
+npm run preview -> vite build
+
+devDependencies -> packages chỉ dùng cho lap trinh viên
+dependencies -> dung cho toàn project
+
+(*) khi minh cài bất kì thư viện nào
+-> thư này có dung tren server hay ko
+vd 
+1 .vite là thư để tạo dự án 
+2 . len server thi dự án phải có rồi -> ko cân tạo nữa
+-> dưa sang devDependencies
+
+vd minh có 1 dự án cân upload file lên gg driver
+- cài thư vienj giup minh có thể uplaoad đc file (ggdriver)
+- mà thu vienj ggdriver đã đc cài trên server
+- dev khi khơi tạo dự án ko có thư vien ggdriver
+
+
+neu chua login -> tu dong chuyen sang trang login
+neu login thanh cong
+-> assessToken and refreshToken -> localStorage
