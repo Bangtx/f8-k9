@@ -1,0 +1,36 @@
+- SPA
+cấu trúc
+<div id="app"></div>
+<script></script>
+
+so sach 
+reactJs               |   Vue
+js render html          html -> js
+pho biến hơn            ít phổ biến hơn
+phức tạp hơn            đơn giản hơn
+fb chông lưng           cộng đông trung/nhât chống lưng
+
+khi dung SPA -> khó để SEO
+SPA phù hợp với nhưng web ko cân seo
+- web quả lý kho
+- web kế toán
+- web app nội bộ
+- web chuyển đổi số
+
+wordpress - php
+
+tạo dự án react
+- npm create vite
+- Project name: react240923
+- react
+- JavaScript + SWC
+
+
+buoi tr:
+; element = '<h1>hello</h1>'
+
+component: là 1 thành phần có thể tái sử dung ở nhiều nơi
+vd component FButton hiện tại luôn hiên text là "f button"
+nhưng nhiief chỗ khác mình muôn hiên text != (login, save ...)
+-> solution: truyền params
+-> props
