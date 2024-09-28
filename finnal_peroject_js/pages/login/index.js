@@ -41,5 +41,4 @@ const onLogin = async (e) => {
 
     // go to home page
     router.navigate('/')
-    console.log('?????')
 }

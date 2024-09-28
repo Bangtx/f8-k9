@@ -20,7 +20,12 @@ const FCommonTable = ({columns, rows}) => {
                                     <tr key={`${ridx}`}>
                                         {
                                             columns.map(column => {
-                                                console.log(column)
+                                                if (column === 'action') {
+                                                    return <td key={`${ridx}${column}`}>
+                                                                <button>Edit</button>
+                                                                <button>Delete</button>
+                                                            </td>
+                                                }
                                                 return <td key={`${ridx}${column}`}>{row[column]}</td>
                                             })
                                         }

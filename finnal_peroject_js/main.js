@@ -7,7 +7,6 @@ export const router = new Navigo('/');
 
 router.on({
   '/': function () {
-    console.log('Home')
     const accessToken = localStorage.getItem('accessToken')
     // if we haven't logged yet -> there is no accessToken in local
     // redirect to login page

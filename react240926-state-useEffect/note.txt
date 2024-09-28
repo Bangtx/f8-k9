@@ -1,0 +1,23 @@
+- useState
+- useEffact
+
+
+ban đầu khai báo let count = 0
+function App được gọi thì FE hiên thị count: 0 (chuẩn)
+khi click vào nút "increment" thi count có tăng lên 1 đơn vị
+(*) -> giao diện ko đổi do function App đã được đc run từ trước rồi
+solution: có cách nào đó để ép function App được goi lại (reload, re-render)
+-> useState ra đời
+useState trả về 2 phần tử
++ phần từ đầu: biến lưu giá trị tức thời
++ phần tử 2: function để cập nhật lại giá trị cho biến
++ truyền vào 1 giá tri default
+
+
+khi tăng biến count 
+setCount(count + 1)
+console.log(count)
+console screen log ra giá trị cũ
+
+-> mong muốn có 1 gì đó có thể theo dõi sự thay đổi cua biến count
+-> useEfect
