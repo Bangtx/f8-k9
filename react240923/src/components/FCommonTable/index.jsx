@@ -1,50 +1,41 @@
 import React from 'react';
+import {TableContainer, Table, Paper, TableHead, TableRow, TableCell, TableBody} from "@mui/material";
 
-const FCommonTable = ({columns, rows}) => {
+const FCommonTable = ({columns, rows, maxWidth}) => {
     return (
         <>
-            <table style={{width: '100%'}}>
-                <thead>
-                    <tr>
+            <TableContainer sx={{maxWidth: maxWidth, margin: '0 auto'}} component={Paper}>
+                <Table aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            {
+                                columns.map(column => <TableCell width={column?.width} key={column.name}>{column.text}</TableCell>)
+                            }
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {
-                            columns.map(column => <th key={column}>{column}</th>)
-                        }
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        rows.map((row, ridx) => {
-                            console.log(row)
-                            return (
-
-                                    <tr key={`${ridx}`}>
+                            rows.map((row, ridx) => {
+                                return (
+                                    <TableRow key={`${ridx}`}>
                                         {
                                             columns.map(column => {
-                                                if (column === 'action') {
-                                                    return <td key={`${ridx}${column}`}>
+                                                if (column.name === 'action') {
+                                                    return <TableCell key={`${ridx}${column.name}`}>
                                                                 <button>Edit</button>
                                                                 <button>Delete</button>
-                                                            </td>
+                                                            </TableCell>
                                                 }
-                                                return <td key={`${ridx}${column}`}>{row[column]}</td>
+                                                return <TableCell key={`${ridx}${column.name}`}>{row[column.name]}</TableCell>
                                             })
                                         }
-                                    </tr>
-                            )
-                        })
-                    }
-                    {/* <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>F88</td>
-                        <td>F88@test</td>
-                        <td>VN</td>
-                    </tr> */}
-                </tbody>
-            </table>
+                                    </TableRow>
+                                )
+                            })
+                        }
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </>
     )
 }

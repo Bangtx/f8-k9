@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    container_name: web-core
+    image: node:18.17.0
+    working_dir: /app/react240923
+    volumes:
+      - './react240923:/app/react240923'
+    ports:
+      - '3000:3000'
+    command: ['npm', 'run', 'dev']

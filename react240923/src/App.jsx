@@ -8,8 +8,35 @@ import {v4} from 'uuid'
 import {FInput, FButton, FCommonTable} from './components'
 
 function App() {
+  // const columns = [
+  //   'id', 'name', 'age', 'gender', 'address', 'action'
+  // ]
   const columns = [
-    'id', 'name', 'age', 'gender', 'address', 'action'
+    {
+      name: 'id',
+      text: 'Mã'
+    },
+    {
+      name: 'name',
+      text: 'Tên',
+      width: '50px'
+    },
+    {
+      name: 'age',
+      text: 'Tuổi'
+    },
+    {
+      name: 'gender',
+      text: 'Giới tính'
+    },
+    {
+      name: 'address',
+      text: 'Địa chỉ'
+    },
+    {
+      text: '',
+      name: 'action',
+    }
   ]
   const [users, setUsers] = useState([
     {id: v4(), name: 'John', age: 25, gender: 'male', address: 'HN'}
@@ -52,7 +79,7 @@ function App() {
       <input type='text' placeholder='address' onChange={(e) => onInput(e, 'address')}/>
       <button onClick={onSave}>Save</button>
 
-      <FCommonTable columns={columns} rows={users}/>
+      <FCommonTable maxWidth={1000} columns={columns} rows={users}/>
     </div>
   )
 }
