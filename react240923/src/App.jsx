@@ -68,6 +68,14 @@ function App() {
     })
   }
 
+  const onDelete = (id) => {
+    console.log('delete', id)
+  }
+
+  const onUpdate = (row) => {
+    console.log('update', row)
+  }
+
   return (
     <div>
       <input type='text' placeholder='name' onChange={(e) => onInput(e, 'name')}/>
@@ -79,7 +87,13 @@ function App() {
       <input type='text' placeholder='address' onChange={(e) => onInput(e, 'address')}/>
       <button onClick={onSave}>Save</button>
 
-      <FCommonTable maxWidth={1000} columns={columns} rows={users}/>
+      <FCommonTable
+          maxWidth={1000}
+          columns={columns}
+          rows={users}
+          onDelete={onDelete}
+          onUpdate={onUpdate}
+      />
     </div>
   )
 }

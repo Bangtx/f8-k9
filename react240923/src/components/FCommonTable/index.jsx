@@ -1,7 +1,10 @@
 import React from 'react';
 import {TableContainer, Table, Paper, TableHead, TableRow, TableCell, TableBody} from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
-const FCommonTable = ({columns, rows, maxWidth}) => {
+
+const FCommonTable = ({columns, rows, maxWidth, onUpdate, onDelete}) => {
     return (
         <>
             <TableContainer sx={{maxWidth: maxWidth, margin: '0 auto'}} component={Paper}>
@@ -22,8 +25,8 @@ const FCommonTable = ({columns, rows, maxWidth}) => {
                                             columns.map(column => {
                                                 if (column.name === 'action') {
                                                     return <TableCell key={`${ridx}${column.name}`}>
-                                                                <button>Edit</button>
-                                                                <button>Delete</button>
+                                                                <EditIcon onClick={() => onUpdate(row)} sx={{color: 'green'}}/>
+                                                                <DeleteOutlineIcon onClick={() => onDelete(row.id)} sx={{color: 'red'}}/>
                                                             </TableCell>
                                                 }
                                                 return <TableCell key={`${ridx}${column.name}`}>{row[column.name]}</TableCell>
