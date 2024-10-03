@@ -1,0 +1,23 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Category 1",
+      "categoryId": 1,
+      "orderNum": 1
+    },
+    {
+      "id": "fc095da2-d01c-473a-956c-b1cd6b160cf4",
+      "name": "quan ao",
+      "orderNum": "2"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Product 1",
+      "categoryId": 1,
+      "orderNum": 1
+    }
+  ]
+}

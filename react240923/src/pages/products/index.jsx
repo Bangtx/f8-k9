@@ -48,8 +48,8 @@ export default function () {
     return (
         <>
             <span>products</span>
-            <FCommonTable columns={columns} rows={products} onUpdate={onUpdate}/>
-            <ProductDialog show={showDialog} onClose={onCloseDialog}/>
+            <FCommonTable maxWidth={1000} columns={columns} rows={products} onUpdate={onUpdate}/>
+            <ProductDialog show={showDialog} onClose={onCloseDialog} width={500}/>
         </>
     )
 }
