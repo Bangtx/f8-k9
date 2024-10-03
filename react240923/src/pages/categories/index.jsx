@@ -1,10 +1,11 @@
 import {FCommonTable} from '../../components';
 import {useState, useEffect} from "react";
-import {CategoruDialog} from '../../components';
+import {CategoryDialog} from '../../components';
 
 export default function () {
     const [showDialog, setShowDialog] = useState(false)
     const [categories, setCategories] = useState([])
+    const [selectingCategory, setSelectedCategory] = useState({})
 
     const columns = [
         {
@@ -35,7 +36,8 @@ export default function () {
         getCategories()
     }, [])
 
-    const onUpdate = (product) => {
+    const onUpdate = (category) => {
+        setSelectedCategory(category)
         setShowDialog(true)
     }
 
@@ -48,7 +50,13 @@ export default function () {
         <>
             <span>products</span>
             <FCommonTable maxWidth={1000} columns={columns} rows={categories} onUpdate={onUpdate}/>
-            <CategoruDialog show={showDialog} onClose={onCloseDialog} width={500} reload={getCategories}/>
+            <CategoryDialog
+                category={selectingCategory}
+                show={showDialog}
+                onClose={onCloseDialog}
+                width={500}
+                reload={getCategories}
+            />
         </>
     )
 }
