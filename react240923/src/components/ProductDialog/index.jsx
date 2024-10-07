@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {TextField, Box, Button} from "@mui/material";
+import {TextField, Box, Button, Autocomplete} from "@mui/material";
 import '../../index.css'
 import DialogContainer, {WhiteBar} from "../DialogContainer/index.jsx";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
@@ -27,9 +27,17 @@ export default function ({product, show, onClose, width, reload}) {
         name: '',
         orderNum: '',
     })
+    const [categories,setCategories] = useState([])
+
+    const getCategories = async () => {
+        // fetch categories from server
+        const response = await fetch('http://localhost:3000/categories')
+        setCategories(await response.json())
+    }
 
     useEffect(() => {
         setCurProduct({...product})
+        getCategories()
     }, [product]);
 
     const onInput = (e) => {
@@ -39,19 +47,20 @@ export default function ({product, show, onClose, width, reload}) {
     }
 
     const onSave = async () => {
+        console.log(curProduct)
         // save product
-        const response = await fetch('http://localhost:3000/products', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(product),
-        })
-
-        if (response.ok) {
-            await reload()
-            onClose()
-        }
+        // const response = await fetch('http://localhost:3000/products', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(product),
+        // })
+        //
+        // if (response.ok) {
+        //     await reload()
+        //     onClose()
+        // }
     }
 
     const onUploadFile = async (event) => {
@@ -91,13 +100,17 @@ export default function ({product, show, onClose, width, reload}) {
                     value={curProduct.name || null}
                 />
                 <WhiteBar/>
-                <TextField
-                    className={'pt-2'}
-                    fullWidth
-                    placeholder="Category"
-                    name="Category"
-                    onInput={onInput}
-                    value={curProduct.categoryId || null}
+                <Autocomplete
+                    disablePortal
+                    getOptionLabel={(option) => option.name}
+                    getOptionKey={(option) => option.id}
+                    options={categories}
+                    renderInput={(params) => <TextField {...params} label="Category" />}
+                    onChange={(event, newValue) => {
+                        const newProduct = {...curProduct}
+                        newProduct.categoryId = newValue.id
+                        setCurProduct({...newProduct })
+                    }}
                 />
                 <WhiteBar/>
                 <TextField
