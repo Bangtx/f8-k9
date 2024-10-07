@@ -43,3 +43,23 @@ nhưng nhiief chỗ khác mình muôn hiên text != (login, save ...)
 products = [
     {id: 1, name: "test", categoryId: 1, image: string, orderNum: 1 }
 ]
+
+const readFile = (file) => {
+  return new Promise((resolve) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onloadend = () => resolve(reader.result)
+  });
+};
+
+const handleFileChange = async (e) => {
+    const selectedFile = e.target.files[0];
+    const payload = await readFile(selectedFile);
+    setFile({
+      payload: payload,
+      id: null,
+      name: selectedFile.filename,
+      type: selectedFile.type,
+      url: URL.createObjectURL(selectedFile)
+    })
+}

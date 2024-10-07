@@ -1,25 +1,27 @@
 import React, {useEffect, useState} from "react";
-import {DialogTitle, Dialog, DialogContent, DialogActions, Button, DialogContentText, TextField, Box} from "@mui/material";
+import {TextField, Box, Button} from "@mui/material";
 import '../../index.css'
-import DialogContainer from "../DialogContainer/index.jsx";
+import DialogContainer, {WhiteBar} from "../DialogContainer/index.jsx";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import {styled} from "@mui/material/styles";
+import {readFile} from '../../utils'
+// import {Image} from "@mui/icons-material";
 
 
-function WhiteBar() {
-    return (
-        <Box
-            sx={(theme) => ({
-                height: 20,
-                backgroundColor: 'white',
-                ...theme.applyStyles('dark', {
-                    backgroundColor: 'rgb(255 132 132 / 25%)',
-                }),
-            })}
-        />
-    );
-}
+const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+});
 
 export default function ({product, show, onClose, width, reload}) {
-
+    const [url, setUrl] = useState(null)
     const [curProduct, setCurProduct] = useState({
         id: null,
         name: '',
@@ -51,10 +53,34 @@ export default function ({product, show, onClose, width, reload}) {
             onClose()
         }
     }
+
+    const onUploadFile = async (event) => {
+        console.log(event.target.files)
+        const selectedFile = event.target.files[0];
+        const payload = await readFile(selectedFile);
+
+        setUrl(URL.createObjectURL(selectedFile))
+    }
     
     return (
         <>
             <DialogContainer show={show} onSave={onSave} onClose={onClose} width={width}>
+                <img src={url}/>
+                <Button
+                    component="label"
+                    role={undefined}
+                    variant="contained"
+                    tabIndex={-1}
+                    startIcon={<CloudUploadIcon />}
+                >
+                    Upload files
+                    <VisuallyHiddenInput
+                        type="file"
+                        onChange={onUploadFile}
+                        multiple
+                    />
+                </Button>
+
                 <WhiteBar/>
                 <TextField
                     className={'pt-2'}
