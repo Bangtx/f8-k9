@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {DialogTitle, Dialog, DialogContent, DialogActions, Button, DialogContentText, TextField, Box} from "@mui/material";
 import '../../index.css'
+import DialogContainer from "../DialogContainer/index.jsx";
 
 
 function WhiteBar() {
@@ -17,34 +18,72 @@ function WhiteBar() {
     );
 }
 
-export default function ({show, onClose, width}) {
+export default function ({product, show, onClose, width, reload}) {
+
+    const [curProduct, setCurProduct] = useState({
+        id: null,
+        name: '',
+        orderNum: '',
+    })
+
+    useEffect(() => {
+        setCurProduct({...product})
+    }, [product]);
+
+    const onInput = (e) => {
+        const newProduct = {...curProduct}
+        newProduct[e.target.name] = e.target.value
+        setCurProduct({ ...newProduct })
+    }
+
+    const onSave = async () => {
+        // save product
+        const response = await fetch('http://localhost:3000/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(product),
+        })
+
+        if (response.ok) {
+            await reload()
+            onClose()
+        }
+    }
+    
     return (
         <>
-            <Dialog
-                open={show}
-                onClose={onClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <DialogTitle id="alert-dialog-title" width={width}>
-                    {"Create product"}
-                </DialogTitle>
-                <DialogContent>
-                    <WhiteBar/>
-                    <TextField className={'pt-2'} fullWidth placeholder="Name"/>
-                    <WhiteBar/>
-                    <TextField className={'pt-2'} fullWidth placeholder="Price"/>
-                    <WhiteBar/>
-                    <TextField className={'pt-2'} fullWidth placeholder="Order num"/>
-                    <WhiteBar/>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={onClose}>Close</Button>
-                    <Button onClick={onClose} autoFocus>
-                        Save
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            <DialogContainer show={show} onSave={onSave} onClose={onClose} width={width}>
+                <WhiteBar/>
+                <TextField
+                    className={'pt-2'}
+                    fullWidth
+                    placeholder="Name"
+                    name="name"
+                    onInput={onInput}
+                    value={curProduct.name || null}
+                />
+                <WhiteBar/>
+                <TextField
+                    className={'pt-2'}
+                    fullWidth
+                    placeholder="Category"
+                    name="Category"
+                    onInput={onInput}
+                    value={curProduct.categoryId || null}
+                />
+                <WhiteBar/>
+                <TextField
+                    className={'pt-2'}
+                    fullWidth
+                    placeholder="Order Num"
+                    name="Order Num"
+                    onInput={onInput}
+                    value={curProduct.orderNum || null}
+                />
+                <WhiteBar/>
+            </DialogContainer>
         </>
     )
 }

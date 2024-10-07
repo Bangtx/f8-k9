@@ -34,3 +34,12 @@ vd component FButton hiện tại luôn hiên text là "f button"
 nhưng nhiief chỗ khác mình muôn hiên text != (login, save ...)
 -> solution: truyền params
 -> props
+
+
+
+-> khi upload ảnh -> server sẽ trả về url đẻ minh có thể xem ảnh
+-> đọc ành base64 -> base64 -> lưu vào json server
+
+products = [
+    {id: 1, name: "test", categoryId: 1, image: string, orderNum: 1 }
+]

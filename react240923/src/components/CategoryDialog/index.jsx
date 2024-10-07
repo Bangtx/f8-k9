@@ -56,7 +56,7 @@ export default function({category, show, onClose, width, reload}) {
                     placeholder="Name"
                     name="name"
                     onInput={onInput}
-                    value={curCategory.name}
+                    value={curCategory.name || ''}
                 />
                 <WhiteBar/>
                 <TextField
@@ -65,7 +65,7 @@ export default function({category, show, onClose, width, reload}) {
                     placeholder="Order num"
                     name="orderNum"
                     onInput={onInput}
-                    value={curCategory.orderNum}
+                    value={curCategory.orderNum || ''}
                 />
                 <WhiteBar/>
             </DialogContainer>
