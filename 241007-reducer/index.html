@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let myArr = [1, 2, 3, 4, 5, 6]
+const data = [
+    ['id', 1],
+    ['name', 'test'],
+    ['orderNum', 1]
+]
+
+const result = data.reduce((accumulator, currentValue) => {
+    accumulator[currentValue[0]] = currentValue[1]
+    // {id: 1, name: 'test'}
+    return accumulator
+}, {})
+// const result = {}
+//
+// data.forEach(e => {
+//     result[e[0]] = e[1]
+// })
+console.log(result)
+
+// const result = {
+//     id: 1,
+//     name: 'test',
+//     orderNum: 1,
+// }
+
+// const total = myArr.reduce((accumulator, currentValue) => {
+//     console.log(accumulator, currentValue)
+//     const sum = accumulator + currentValue
+//     return sum
+// })
+// console.log('Total:', total)
+
+// accumulator là giá trị return của vong lặp trước
+// giá trị lân đâu là phần tử đầu tiên của mảng
+// nếu có default value thì accumulator sẽ là giá trị default
+// thay vì phần thử đầu của mảng
+
+</script>
+</body>
+</html>

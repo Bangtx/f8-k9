@@ -4,10 +4,10 @@ services:
   web:
     container_name: web-core
     image: node:18.17.0
-    working_dir: /app/react240923
+    working_dir: /app/react_use_reducer
     volumes:
-      - './react240923:/app/react240923'
+      - './react_use_reducer:/app/react_use_reducer'
     ports:
       - '3000:3000'
       - '5173:5173'
-    command: ['npm', 'run', 'start']
+    command: ['npm', 'run', 'dev']
