@@ -1,35 +1,46 @@
 import './App.css'
 import {useState, useReducer} from "react";
-
-// tat ca nhung gi useState lam duoc thi useReducer cung lam dc la nguoc lai
-// khi component co qua nhiu state -> useReducer co the quan ly nhieu state, va co the tach ra file khac
-// code trong 1 file ngan hon (thuc te so luong dong code cong lai ko he it hon)
-
-// products = [{
-//     id: 1,
-//     name: 'Product 1',
-//     price: 100,
-//     description: 'Product 1 description'
-// }]
-
-const reducer = (state, action) => {
-    console.log(state, action)
-    if (action.key === 'increase') {
-        return {
-            ...state, count: state.count + action.value
-        }
-    }
-    return state
-}
+import reducer, {initProduct} from "./reducer/index.js";
 
 
 function App() {
     const [state, dispatch] = useReducer(reducer, {
-        count: 0
+        count: 0,
+        products: [],
+        product: {...initProduct}
     })
+
+    const onInput = (event) => {
+        const {name, value} = event.target
+        dispatch({action: 'product/onInput', payload: {name, value}})
+    }
+
+    const onSave = () => {
+        // dua product vao trong products
+        // reset cac field trong product
+        dispatch({action: 'products/onSave'})
+    }
+
     return (
         <>
-            <button onClick={() => dispatch({key: 'increase', value: 90})}>test reducer</button>
+            <h1>Product form</h1>
+            <input type="text" name="name" placeholder="name" onChange={onInput}/><br/>
+            <input type="text" name="price" placeholder="price" onChange={onInput}/><br/>
+            <input type="text" name="description" placeholder="description" onChange={onInput}/><br/>
+            <button onClick={onSave}>Save</button>
+
+            <h2>Product List</h2>
+            <ul>
+                {
+                    state.products.map((product, index) => {
+                        return (
+                            <li key={index}>
+                                {product.name} - {product.price} - {product.description}
+                            </li>
+                        )
+                    })
+                }
+            </ul>
         </>
     )
 }
