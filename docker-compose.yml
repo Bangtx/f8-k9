@@ -4,9 +4,9 @@ services:
   web:
     container_name: web-core
     image: node:18.17.0
-    working_dir: /app/react_use_reducer
+    working_dir: /app/241014_store
     volumes:
-      - './react_use_reducer:/app/react_use_reducer'
+      - './241014_store:/app/241014_store'
     ports:
       - '3000:3000'
       - '5173:5173'
