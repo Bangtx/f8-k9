@@ -9,7 +9,9 @@ const options = [
 ]
 
 export default function () {
-    const {dispatch} = useContext(AppContext)
+    const {state, dispatch} = useContext(AppContext)
+
+    console.log(1234, state.inputtingJob)
 
     const onInput = (event) => {
 
@@ -17,15 +19,18 @@ export default function () {
 
     const onSave = () => {
         // save logic here
-        dispatch('abc')
+        dispatch({
+            type: 'jobs/save', payload: state.inputtingJob
+        })
     }
 
     return (
         <>
             <TextField
+                value={state.inputtingJob.name}
                 label={'name'}
                 fullWidth
-                onChange={(e) => dispatch({action: 'inputtingJob/name/update', payload: e.target.value})}
+                onChange={(e) => dispatch({type: 'inputtingJob/name/update', payload: e.target.value})}
             />
 
             <Autocomplete
@@ -35,7 +40,7 @@ export default function () {
                 fullWidth
                 renderInput={(params) => <TextField {...params} label="Priority" />}
                 onChange={(event, newValue) => {
-                    dispatch({action: 'inputtingJob/priority/update', payload: newValue})
+                    dispatch({type: 'inputtingJob/priority/update', payload: newValue})
                 }}
             />
             <Button onClick={onSave}>Save</Button>
