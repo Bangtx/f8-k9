@@ -1,56 +1,82 @@
-import {useCallback, useMemo, useState} from 'react'
+import {useCallback, useMemo, useRef, useState} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import {Child} from "./components";
+import {Child} from "./components/index.js";
 
-const getTotalPayment = (payments) => {
-    console.log('calculate total')
-    let total = 0
-    payments.forEach(payment => {
-        total += payment.payment
-    })
-    return total
-}
+let count = 0
+
 
 function App() {
-    console.log('re-render')
-    const [searchInput, setSearchInput] = useState('')
+    // const count = test
+    const [count2, setCount2] = useState(0)
 
-    const [payments, setPayments] = useState([
-        {id: 1, customer: 'Son giua', payment: 1000},
-        {id: 2, customer: 'Son be', payment: 2000},
-        {id: 3, customer: 'Son lon', payment: 1000},
-        {id: 4, customer: 'Hao', payment: 1200},
-        {id: 5, customer: 'Hoang', payment: 2000}
-    ])
-
-
-    const total = useMemo(() => getTotalPayment(payments), [payments])
-
-    const onAddPayment = () => {
-        setPayments([...payments, {id: 6, customer: 'Kien', payment: 2000}])
+    const onclick = () => {
+        count += 1
+        console.log(count)
     }
 
     return (
         <>
-            <input value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
-            <ul>
-                {
-                    payments.map(payment => (
-                        <li key={payment.id}>
-                            {payment.customer}: {payment.payment}
-                        </li>
-                    ))
-                }
-            </ul>
-            <span>total: {total}</span>
-            <button onClick={onAddPayment}>add payment</button>
+            <p>count: {count}</p>
+            <p>count2: {count2}</p>
+            <button onClick={onclick}>increase count</button>
+            <button onClick={() => setCount2(count2 + 1)}>increase count2</button>
+            <Child/>
         </>
     )
 }
 
 export default App
+
+// const getTotalPayment = (payments) => {
+//     console.log('calculate total')
+//     let total = 0
+//     payments.forEach(payment => {
+//         total += payment.payment
+//     })
+//     return total
+// }
+//
+// function App() {
+//     console.log('re-render')
+//     let count = 0
+//     const [searchInput, setSearchInput] = useState('')
+//
+//     const [payments, setPayments] = useState([
+//         {id: 1, customer: 'Son giua', payment: 1000},
+//         {id: 2, customer: 'Son be', payment: 2000},
+//         {id: 3, customer: 'Son lon', payment: 1000},
+//         {id: 4, customer: 'Hao', payment: 1200},
+//         {id: 5, customer: 'Hoang', payment: 2000}
+//     ])
+//
+//
+//     const total = useMemo(() => getTotalPayment(payments), [payments])
+//
+//     const onAddPayment = () => {
+//         setPayments([...payments, {id: 6, customer: 'Kien', payment: 2000}])
+//     }
+//
+//     return (
+//         <>
+//             <input value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
+//             <ul>
+//                 {
+//                     payments.map(payment => (
+//                         <li key={payment.id}>
+//                             {payment.customer}: {payment.payment}
+//                         </li>
+//                     ))
+//                 }
+//             </ul>
+//             <span>total: {total}</span>
+//             <button onClick={onAddPayment}>add payment</button>
+//         </>
+//     )
+// }
+//
+// export default App
 
 // function App() {
 //     const [count, setCount] = useState(0)

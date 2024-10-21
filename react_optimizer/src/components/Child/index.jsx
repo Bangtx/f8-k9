@@ -1,10 +1,10 @@
 import {memo, useState} from 'react'
 
-const Child = ({func}) =>{
+const Child = () =>{
     // console.log('re-render child')
     return (
         <>
-            <p>tessssssssssssssss: {func()}</p>
+            <p>tessssssssssssssss</p>
         </>
     )
 }
