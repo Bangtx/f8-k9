@@ -4,9 +4,9 @@ services:
   web:
     container_name: web-core
     image: node:18.17.0
-    working_dir: /app/react_optimizer
+    working_dir: /app/react-redux
     volumes:
-      - './react_optimizer:/app/react_optimizer'
+      - './react-redux:/app/react-redux'
     ports:
       - '3000:3000'
       - '5173:5173'

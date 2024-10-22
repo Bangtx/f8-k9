@@ -10,11 +10,14 @@ let count = 0
 function App() {
     // const count = test
     const [count2, setCount2] = useState(0)
+    const reference = useRef(null)
 
     const onclick = () => {
         count += 1
         console.log(count)
     }
+
+    console.log(reference)
 
     return (
         <>
@@ -22,7 +25,7 @@ function App() {
             <p>count2: {count2}</p>
             <button onClick={onclick}>increase count</button>
             <button onClick={() => setCount2(count2 + 1)}>increase count2</button>
-            <Child/>
+            <Child ref={reference}/>
         </>
     )
 }
