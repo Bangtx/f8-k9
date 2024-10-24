@@ -14,7 +14,7 @@ const onDecreaseCount = (payload = 1) => {
 
 const onUpdateInputtingJob = (name, payload) => {
     return {
-        type: `inputtingJob/${name}/update`,
+        type: `inputtingJob/${name}`,
         payload: payload
     }
 }

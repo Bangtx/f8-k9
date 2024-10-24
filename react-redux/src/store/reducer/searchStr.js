@@ -1,8 +1,17 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 
-const
+const searchStrSlice = createSlice({
+    name: 'searchStr',
+    initialState: '',
+    reducers: {
+        input: (state, action) => {
+            return action.payload
+        }
+    }
+})
 
+// searchStr/input
 
 // const reducer = (state, action) => {
 //     switch (action.type) {
@@ -13,4 +22,4 @@ const
 //     }
 // }
 
-export default reducer
+export default searchStrSlice
