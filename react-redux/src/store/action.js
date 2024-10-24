@@ -27,7 +27,16 @@ const onSaveJob = (payload) => {
 }
 
 
+const onInputSearchStr = (payload) => {
+    return {
+        type: 'searchStr/input',
+        payload: payload
+    }
+}
+
+
 export {
+    onInputSearchStr,
     onIncreaseCount,
     onDecreaseCount,
     onUpdateInputtingJob,
