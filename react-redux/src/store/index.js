@@ -11,5 +11,6 @@ const reducer = configureStore({
     }
 })
 export default reducer
-export * from './action.js'
 export * from './selector.js'
+
+export {searchStrReducer, jobsReducer, inputtingJobReducer}

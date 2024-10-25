@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from "react-redux";
-import {getInputtingJob, onUpdateInputtingJob, onSaveJob} from '../../store'
+import {getInputtingJob, inputtingJobReducer, jobsReducer} from '../../store'
 
 export default function () {
     const dispatch = useDispatch()
@@ -8,11 +8,11 @@ export default function () {
     const onChange = (e) => {
         // e.target.name = name || priority
         const {name, value} = e.target
-        dispatch(onUpdateInputtingJob(name, value))
+        dispatch(inputtingJobReducer.actions[name](value))
     }
 
     const onSave = () => {
-        dispatch(onSaveJob(inputtingJob))
+        dispatch(jobsReducer.actions.save(inputtingJob))
     }
 
     return (

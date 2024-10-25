@@ -6,20 +6,14 @@ const searchStrSlice = createSlice({
     initialState: '',
     reducers: {
         input: (state, action) => {
+            console.log('test', action)
             return action.payload
         }
     }
 })
 
-// searchStr/input
 
-// const reducer = (state, action) => {
-//     switch (action.type) {
-//         case 'searchStr/input':
-//             return action.payload
-//         default:
-//             return state
-//     }
-// }
 
 export default searchStrSlice
+
+export {thunkFunction}

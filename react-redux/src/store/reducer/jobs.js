@@ -1,14 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-
-
-// const reducer = (state, action) => {
-//     switch (action.type) {
-//         case 'jobs/save':
-//             return [...state, action.payload]
-//         default:
-//             return state
-//     }
-// }
+import searchStrSlice from "./searchStr.js";
 
 const jobsSlice = createSlice({
     name: 'jobs',
@@ -21,4 +12,14 @@ const jobsSlice = createSlice({
     }
 })
 
+const jobsThunkFunction = (dispatch, getState) => {
+    console.log(getState())
+    return async function fetchTodoByIdThunk(dispatch, getState) {
+        const response = await fetch('/jobs/')
+        dispatch(jobsSlice.actions.save(response.todos))
+    }
+}
+
+
 export default jobsSlice
+export {jobsThunkFunction}
