@@ -1,14 +1,17 @@
 import {useSelector, useDispatch} from "react-redux";
 import {getJobs} from '../../store'
 import {useEffect} from "react";
-import {jobsThunkFunction} from "../../store/reducer/jobs.js";
+import {fetchJobs} from "../../store/reducer/jobs.js";
 
 export default function () {
     const jobs = useSelector(getJobs)
+
+    console.log('jobs', jobs)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(jobsThunkFunction)
+        // dispatch(jobsThunkFunction())
+        dispatch(fetchJobs())
     }, []);
     return (
         <>
