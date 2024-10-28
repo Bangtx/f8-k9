@@ -3,9 +3,13 @@ import searchStrSlice from "./searchStr.js";
 
 // omit imports and state
 
-export const fetchJobs = createAsyncThunk('jobs/fetchJobs', async () => {
-    const response = await fetch('http://localhost:3000/jobs')
-    return await response.json()
+export const fetchJobs = createAsyncThunk('jobs/fetchJobs', async (_, {rejectWithValue}) => {
+    try {
+        const response = await fetch('http://localhost:3000/jobs')
+        return await response.json()
+    } catch (e) {
+        return rejectWithValue(e)
+    }
 })
 
 

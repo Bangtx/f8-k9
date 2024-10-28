@@ -3,11 +3,11 @@ version: '3'
 services:
   web:
     container_name: web-core
-    image: node:18.17.0
-    working_dir: /app/react-redux
+    image: node:23.0.0
+    working_dir: /app/next01
     volumes:
-      - './react-redux:/app/react-redux'
+      - './next01:/app/next01'
     ports:
       - '3000:3000'
       - '5173:5173'
-    command: ['npm', 'run', 'start']
+    command: ['npm', 'run', 'dev']
