@@ -1,5 +1,5 @@
 import {searchStrReducer, getSearchStr} from '../../store'
-import {thunkFunction} from '../../store/reducer/searchStr.js'
+// import {thunkFunction} from '../../store/reducer/searchStr.js'
 import {useDispatch, useSelector} from "react-redux";
 
 export default function() {
@@ -7,8 +7,8 @@ export default function() {
     const searchStr = useSelector(getSearchStr)
 
     const onInput = (e) => {
-        dispatch(thunkFunction)
-        // dispatch(searchStrReducer.actions.input(e.target.value))
+        // dispatch(thunkFunction)
+        dispatch(searchStrReducer.actions.input(e.target.value))
     }
 
     return (

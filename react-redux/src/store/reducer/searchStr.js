@@ -15,5 +15,3 @@ const searchStrSlice = createSlice({
 
 
 export default searchStrSlice
-
-export {thunkFunction}

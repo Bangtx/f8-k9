@@ -15,7 +15,7 @@ const jobsSlice = createSlice({
 const jobsThunkFunction = (dispatch, getState) => {
     console.log(getState())
     return async function fetchTodoByIdThunk(dispatch, getState) {
-        const response = await fetch('/jobs/')
+        const response = await fetch('https://localhost:3000/jobs')
         dispatch(jobsSlice.actions.save(response.todos))
     }
 }

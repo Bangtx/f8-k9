@@ -1,46 +1,22 @@
 class Animal {
-    #head;
-    #legs = 2;
-    #arms = 2;
+    #name = 0
+    head
+    _legs
 
-    setHead(head) {
-        this.#head = head;
+    constructor(name, legs) {
+        this.#name = name;
+        this._legs = legs;
     }
-
-    setLegs(leg) {
-        this.#legs = leg;
-    }
-
-    setArms(arms) {
-        this.#arms = arms;
-    }
-
-    go() {
-        console.log('go');
-    }
-
-    eat() {
-        console.log('eat');
+    // constructor() {}
+    getName () {
+        return this.#name;
     }
 }
 
-
-class Lion extends Animal {
-
-    constructor() {
-        super();
-        this.setLegs(1);
-        this.setArms(4);
-        this.setLegs(4);
-    }
-
-    go() {
-        super.go();
-        console.log('gao');
-    }
+class Dog extends Animal {
 }
 
-const animal = new Lion()
-animal.setHead(1)
-// animal.head = 1
-animal.go()
+const animal = new Animal("Dog", 4);
+const dog = new Dog("Dog", 4);
+console.log(animal.getName())
+console.log(animal._legs)
