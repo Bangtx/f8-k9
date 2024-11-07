@@ -1,3 +1,11 @@
+export async function generateMetadata({ params, searchParams }, parent) {
+
+    return {
+        title: 'my title'
+    }
+}
+
+
 export default async function ({params, searchParams}) {
     console.log(await params) // log the params object to the console
     console.log(await searchParams) // log the params object to the console

@@ -1,14 +1,36 @@
-'use client'
-// import { useState, useEffect } from'react';
-import {Child} from "@/components";
+// 'use client'
+// import {useState, useEffect} from 'react';
+import { revalidateTag } from 'next/cache'
 
-export default function Home() {
+export default async function Home() {
+    const response = await fetch(
+        'http://localhost:3001/products',
+        // { next: {revalidate: 20} }
+        { next: {tags: ['update']} }
+    )
+    const products = await response.json()
+    // const [products, setProducts] = useState([])
 
-    console.log('test')
+    // const getProducts = async () => {
+    //     const data = await fetch('http://localhost:3001/products')
+    //     setProducts(await data.json())
+    // }
+    //
+    // useEffect(() => {
+    //     getProducts()
+    // }, [])
+
     return (
         <>
-            <span>app</span>
-            <Child/>
+            <ul>
+                {
+                    products.map(product => (
+                        <li key={product.id}>
+                            <span>{product.name}</span>
+                        </li>
+                    ))
+                }
+            </ul>
         </>
     );
 }

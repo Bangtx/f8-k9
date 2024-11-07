@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  web:
+  api:
     container_name: web-core
     image: node:23.0.0
     working_dir: /app/next01
@@ -9,5 +9,5 @@ services:
       - './next01:/app/next01'
     ports:
       - '3000:3000'
-      - '5173:5173'
-    command: ['npm', 'run', 'dev']
+      - '3001:3001'
+    command: ['npm', 'run', 'serve']
